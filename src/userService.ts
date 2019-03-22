@@ -7,7 +7,7 @@ import { User } from "./user";
 @Injectable()
 export class UserService implements IUserService {
    
-    private userUrl: string = 'http://localhost:89/api/users';
+    private userUrl: string = 'http://localhost:86/api/users';
     constructor(private http: Http) { }
 
     public getUsers(): Observable<User[]> {
@@ -34,14 +34,14 @@ export class UserService implements IUserService {
     public updateUser(userId: number, user: User ): Observable<User> {
         let header = new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'});
         let options = new RequestOptions({headers: header});
-        let url = `http://localhost:2094/api/users/${userId}`;
+        let url = `http://localhost:8249/api/users/${userId}`;
         return this.http.put(url, JSON.stringify(user), options).map(this.extractData).catch(this.handelError);
     }
 
     public deleteUser(userId: number): Observable<User> {
         let headers = new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'});
         let options = new RequestOptions({headers: headers});
-        let url = `http://localhost:2094/api/users/${userId}`;
+        let url = `http://localhost:8249/api/users/${userId}`;
         return this.http.delete(url, options).map(this.extractData).catch(this.handelError);
     }
 } 
