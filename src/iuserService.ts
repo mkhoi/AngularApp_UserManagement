@@ -1,5 +1,5 @@
 import {User} from "./user";
 import { Observable } from "rxjs/Rx";
 export interface IUserService {
-    getUser(): Observable<User[]>;
+    getUsers(): Observable<User[]>;
 }

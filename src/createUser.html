@@ -1,3 +1,32 @@
-<div>
-    This is create user page.
+<div class="container">
+    <h1 class="title" style="text-align: center; padding-bottom: 10px;">Add New User</h1>
+    <form>
+        <div class="row">
+            <div class="col-25">
+                <label for="inputFirstName">First Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="inputFirstName" name="firstname" placeholder="Your name.." [(ngModel)]="user.firstName" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="inputLastName">Last Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="inputLastName" name="lastname" placeholder="Your last name.." [(ngModel)]="user.lastName" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="inputUserName">User Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="inputUserName" name="username" placeholder="Your user name.." [(ngModel)]="user.userName" required>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit" (click)="onSubmitClicked(user)">
+        </div>
+    </form>
 </div>

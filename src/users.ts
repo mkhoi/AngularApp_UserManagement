@@ -17,11 +17,11 @@ export class Users implements OnInit{
     }
 
     public ngOnInit(): void {
-        this.getUser();
+        this.getUsers();
     }
 
-    public getUser(): void {
-        this.users = this.userService.getUser();
+    public getUsers(): void {
+        this.users = this.userService.getUsers();
     }
 
     public onEditClicked(userId: string) {

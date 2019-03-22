@@ -6,19 +6,11 @@ import { User } from "./user";
 
 @Injectable()
 export class UserService implements IUserService {
-    /*public getUser(): Array<any> {
-        let users: Array<any> = [
-            {id: 1, firstName: "Eri", lastName: "Ca", userName: "EriCa"},
-            {id: 2, firstName: "John", lastName: "Son", userName: "JohnSon"},
-            {id: 3, firstName: "Laure", lastName: "Lu", userName: "LaureLu"}
-        ]
-        return users;
-    }*/
-
+   
     private userUrl: string = 'http://localhost:89/api/users';
     constructor(private http: Http) { }
 
-    public getUser(): Observable<User[]> {
+    public getUsers(): Observable<User[]> {
         let headers = new Headers ({'Accept': 'application/json'});
         let options = new RequestOptions({headers: headers});
         let users = this.http.get(this.userUrl, options).map(this.extractData).catch(this.handelError);
@@ -31,5 +23,11 @@ export class UserService implements IUserService {
     private extractData(res: Response) {
         let body = res.json();
         return body;
+    }
+
+    public addUser(user: User): Observable<User> {
+        let header = new Headers ({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: header});
+        return this.http.post(this.userUrl, user, options).map(this.extractData).catch(this.handelError);
     }
 } 
