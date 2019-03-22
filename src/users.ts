@@ -12,6 +12,7 @@ import { User } from "./user";
 export class Users implements OnInit{ 
     
     private users: Observable<User[]>;
+    private idDeleted: number;
 
     constructor(private router: Router, private userService: UserService) {
     }
@@ -24,7 +25,17 @@ export class Users implements OnInit{
         this.users = this.userService.getUsers();
     }
 
+    private deleteUser(): void {
+        this.userService.deleteUser(this.idDeleted).subscribe();
+    }
+
     public onEditClicked(userId: string) {
         this.router.navigate(["editUser", userId]);
+    }
+
+    public onDeleteClicked(userId: number) {
+        this.idDeleted = userId;
+        this.deleteUser();
+        console.log("Delete Successfuly");
     }
 }

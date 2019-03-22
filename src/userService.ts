@@ -37,4 +37,11 @@ export class UserService implements IUserService {
         let url = `http://localhost:2094/api/users/${userId}`;
         return this.http.put(url, JSON.stringify(user), options).map(this.extractData).catch(this.handelError);
     }
+
+    public deleteUser(userId: number): Observable<User> {
+        let headers = new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+        let url = `http://localhost:2094/api/users/${userId}`;
+        return this.http.delete(url, options).map(this.extractData).catch(this.handelError);
+    }
 } 
