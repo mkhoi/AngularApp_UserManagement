@@ -10,13 +10,13 @@ export class CreateUser {
 
     constructor(private userService: UserService) { }
     
-    public addUser():void {
+    private addUser():void {
         this.userService.addUser(this.user).subscribe();
     }
 
     public onSubmitClicked(user: any) {
         user = this.user;
         this.addUser();
-        console.log("Successfully", user);
+        console.log("Successfuly", user);
     }
 }

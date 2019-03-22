@@ -20,7 +20,7 @@ export class Users implements OnInit{
         this.getUsers();
     }
 
-    public getUsers(): void {
+    private getUsers(): void {
         this.users = this.userService.getUsers();
     }
 
