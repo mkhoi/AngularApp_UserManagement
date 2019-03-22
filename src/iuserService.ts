@@ -1,3 +1,5 @@
+import {User} from "./user";
+import { Observable } from "rxjs/Rx";
 export interface IUserService {
-    getUser(): Array<any>;
+    getUser(): Observable<User[]>;
 }

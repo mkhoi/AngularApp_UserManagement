@@ -6,11 +6,13 @@ import { Users } from "./users";
 import { CreateUser } from "./createUser";
 import { EditUser } from "./editUser";
 import { Layout } from "./layout";
-import {UserService} from "./userService";
+import { UserService } from "./userService";
+import { HttpModule } from "@angular/http";
 
 @NgModule({
     imports: [
         BrowserModule,
+        HttpModule,
         FormsModule,
         UserRoutes
     ],
