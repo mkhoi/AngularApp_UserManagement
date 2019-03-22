@@ -37,5 +37,6 @@ export class Users implements OnInit{
         this.idDeleted = userId;
         this.deleteUser();
         console.log("Delete Successfuly");
+        window.location.reload();
     }
 }
